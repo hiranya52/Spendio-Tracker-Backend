@@ -22,7 +22,8 @@ public class UserService {
 
     public UserDTO getUser(String email) {
 
+        User user = userRepository.findByEmail(email);
+        return UserMapper.toDto(user);
 
-        return null;
     }
 }
