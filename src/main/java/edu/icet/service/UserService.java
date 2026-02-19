@@ -20,4 +20,9 @@ public class UserService {
 
     }
 
+    public UserDTO getUser(String email) {
+
+
+        return null;
+    }
 }
