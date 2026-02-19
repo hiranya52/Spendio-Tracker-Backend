@@ -1,10 +1,13 @@
 package edu.icet.service;
 
+import edu.icet.mapper.UserMapper;
 import edu.icet.model.dto.UserDTO;
 import edu.icet.model.entity.User;
 import edu.icet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 
     @Autowired
@@ -12,11 +15,8 @@ public class UserService {
 
     public void addUser(UserDTO userDTO) {
 
-        User user = new User(
-                userDTO.getName(),
-                userDTO.getEmail(),
-                userDTO.getPassword()
-        );
+        User user = UserMapper.toEntity(userDTO);
+        userRepository.save(user);
 
     }
 
