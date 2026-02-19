@@ -16,6 +16,14 @@ public class TransactionDTO {
     private String date;
     private TransactionType type;
 
+    public TransactionDTO(String title, TransactionType type, String category, Double amount, String date) {
+        this.title = title;
+        this.type = type;
+        this.category = category;
+        this.amount = amount;
+        this.date = date;
+    }
+
     public enum TransactionType {
         INCOME,
         EXPENSE
