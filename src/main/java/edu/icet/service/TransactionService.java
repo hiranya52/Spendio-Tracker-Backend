@@ -1,5 +1,7 @@
 package edu.icet.service;
 
+import edu.icet.mapper.TransactionMapper;
+import edu.icet.mapper.UserMapper;
 import edu.icet.model.dto.TransactionDTO;
 import edu.icet.model.entity.Transaction;
 import edu.icet.model.entity.User;
@@ -46,6 +48,17 @@ public class TransactionService {
         return dtoList;
 
     }
+
+
+    public Transaction addTransaction(TransactionDTO dto, String email) {
+
+        User user = userRepository.findByEmail(email);
+
+        Transaction transaction = TransactionMapper.mapToEntity(dto,user);
+
+        return transactionRepository.save(transaction);
+    }
+
 
 
 }

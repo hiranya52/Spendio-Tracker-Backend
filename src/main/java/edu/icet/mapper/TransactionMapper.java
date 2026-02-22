@@ -7,7 +7,7 @@ import edu.icet.model.entity.User;
 
 public class TransactionMapper {
 
-    public Transaction mapToEntity(TransactionDTO dto, User user) {
+    public static Transaction mapToEntity(TransactionDTO dto, User user) {
         Transaction transaction = new Transaction();
         transaction.setTitle(dto.getTitle());
         transaction.setType(dto.getType()); // "INCOME" or "EXPENSE"
@@ -19,7 +19,7 @@ public class TransactionMapper {
     }
 
 
-    public TransactionDTO mapToDTO(Transaction transaction) {
+    public static TransactionDTO mapToDTO(Transaction transaction) {
         return new TransactionDTO(
                 transaction.getTitle(),
                 transaction.getType(),
